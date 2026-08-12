@@ -18,11 +18,11 @@ site_url: "https://habbyinterior.netlify.app"
 display_url: "https://habbyinterior.netlify.app"
 
 media_folder: "images/uploads"
-public_folder: "/images/uploads"
+public_folder: "images/uploads"
 
 publish_mode: simple
 
-logo_url: "/a.png"
+logo_url: "a.png"
 
 collections:
   - name: "homepage"
@@ -36,13 +36,13 @@ collections:
             name: "logo"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
 
           - label: "Hero Background Image"
             name: "hero_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
 
           - label: "Hero Image Description"
             name: "hero_image_alt"
@@ -53,7 +53,7 @@ collections:
             name: "service_1_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
 
           - label: "Residential Interiors Image Description"
             name: "service_1_alt"
@@ -64,7 +64,7 @@ collections:
             name: "service_2_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
 
           - label: "Commercial & Hospitality Image Description"
             name: "service_2_alt"
@@ -75,7 +75,7 @@ collections:
             name: "service_3_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
 
           - label: "Furniture & Procurement Image Description"
             name: "service_3_alt"
@@ -120,7 +120,7 @@ collections:
         name: "image"
         widget: "image"
         media_folder: "images/projects"
-        public_folder: "/images/projects"
+        public_folder: "images/projects"
 
       - label: "Image Description"
         name: "image_alt"
@@ -136,7 +136,7 @@ collections:
           name: "image"
           widget: "image"
           media_folder: "images/projects"
-          public_folder: "/images/projects"
+          public_folder: "images/projects"
 
       - label: "Display Order"
         name: "order"
@@ -174,7 +174,7 @@ collections:
         name: "image"
         widget: "image"
         media_folder: "images/gallery"
-        public_folder: "/images/gallery"
+        public_folder: "images/gallery"
 
       - label: "Caption"
         name: "caption"
@@ -217,7 +217,7 @@ collections:
         widget: "image"
         required: false
         media_folder: "images/testimonials"
-        public_folder: "/images/testimonials"
+        public_folder: "images/testimonials"
 
       - label: "Display Order"
         name: "order"
