@@ -16,7 +16,7 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <header id="siteHeader">
-  <a href="#top" class="logo" aria-label="AA Luxury Concept — Home">
+  <a href="#top" class="logo" aria-label="Habby Interior — Home">
     <span class="mark-wrap">
       <img class="mark-img" src="a.png" alt="" onerror="this.closest('.mark-wrap').classList.add('img-fallback')">
       <span class="mark-fallback" aria-hidden="true">AA</span>
@@ -313,7 +313,7 @@
   </div>
 </footer>
 
-<div class="toast" id="toast">Thanks — your enquiry has been noted. We'll reach out shortly.</div>
+<div class="toast" id="toast">Opening WhatsApp — hit send there to complete your enquiry.</div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -385,30 +385,6 @@
   document.querySelectorAll('.hero-inner .hreveal').forEach((el,i)=>{
     setTimeout(()=>el.classList.add('in'), reducedMotion ? 0 : 150 + 120*i);
   });
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  // Replace with your business WhatsApp number: country code + number, no "+" or spaces
-  const whatsappNumber = '2349051710649';
-
-  const fullName = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  const phone = document.getElementById('fphone').value.trim();
-  const projectType = document.getElementById('ftype').value;
-  const message = document.getElementById('fmsg').value.trim();
-
-  const text =
-`New Enquiry from Website
-Name: ${fullName}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Project Type: ${projectType}
-Details: ${message || 'No additional details'}`;
-
-  const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
-  window.open(waUrl, '_blank');
-});
-
   /* ---------- header scroll state + scroll progress ---------- */
   const header = document.getElementById('siteHeader');
   const progressBar = document.getElementById('scrollProgress');
@@ -494,13 +470,50 @@ Details: ${message || 'No additional details'}`;
     });
   });
 
-  /* ---------- contact form (static — no backend wired up) ---------- */
+  /* ---------- contact form -> WhatsApp ----------
+     Sends the enquiry to the studio's WhatsApp number (same number listed
+     in the Contact section) with the form fields pre-filled as the message. */
   const form = document.getElementById('contactForm');
   const toast = document.getElementById('toast');
-  form.addEventListener('submit', (e)=>{
+
+  // Same number shown in the Contact section's WhatsApp link.
+  // Update in both places if the business number ever changes.
+  const WHATSAPP_NUMBER = '2348115648615';
+
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const fullName = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const projectType = document.getElementById('ftype').value;
+    const message = document.getElementById('fmsg').value.trim();
+
+    const text =
+`New Enquiry from Website
+Name: ${fullName}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Project Type: ${projectType}
+Details: ${message || 'No additional details'}`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    const waWindow = window.open(waUrl, '_blank', 'noopener');
+
+    if (!waWindow) {
+      // Popup blocked — send the visitor there directly instead of
+      // showing a false "success" toast.
+      window.location.href = waUrl;
+      return;
+    }
+
     toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'), 3600);
+    setTimeout(() => toast.classList.remove('show'), 3600);
     form.reset();
   });
 </script>
