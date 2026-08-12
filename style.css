@@ -86,13 +86,31 @@
     position:fixed;top:0;left:0;right:0;z-index:500;
     display:flex;align-items:center;justify-content:space-between;
     padding:22px 40px;
-    transition:background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+    transition:padding .4s var(--ease);
+  }
+  /* The blurred header backdrop lives on a pseudo-element, not on `header`
+     itself. A filter/backdrop-filter on `header` would make it the
+     containing block for its position:fixed children — and `nav` (the
+     mobile menu overlay) is one of those children. That silently shrinks
+     the "full-screen" nav down to just the header's own box the moment
+     .scrolled is applied, which is why the overlay only covered a sliver
+     near the top instead of the whole viewport. Keeping the filter on a
+     pseudo-element (a sibling in the render tree, not an ancestor of nav)
+     avoids that entirely. */
+  header::before{
+    content:'';
+    position:absolute;inset:0;z-index:-1;
+    background:rgba(15,13,11,0);
     border-bottom:1px solid transparent;
+    transition:background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s var(--ease);
+    pointer-events:none;
   }
   header.scrolled{
+    padding:14px 40px;
+  }
+  header.scrolled::before{
     background:rgba(15,13,11,0.88);
     backdrop-filter:blur(10px);
-    padding:14px 40px;
     border-bottom:1px solid var(--line-dark);
   }
   .logo{display:flex;align-items:center;gap:12px;color:var(--paper);min-width:0;}
