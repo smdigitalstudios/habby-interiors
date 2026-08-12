@@ -18,31 +18,35 @@ site_url: "https://habbyinterior.netlify.app"
 display_url: "https://habbyinterior.netlify.app"
 
 media_folder: "images/uploads"
-public_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 publish_mode: simple
 
-logo_url: "a.png"
+logo_url: "/a.png"
 
 collections:
+
   - name: "homepage"
     label: "Homepage"
+
     files:
       - name: "homepage"
         label: "Homepage Images"
         file: "content/homepage.json"
+
         fields:
+
           - label: "Logo"
             name: "logo"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
 
           - label: "Hero Background Image"
             name: "hero_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
 
           - label: "Hero Image Description"
             name: "hero_image_alt"
@@ -53,7 +57,7 @@ collections:
             name: "service_1_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
 
           - label: "Residential Interiors Image Description"
             name: "service_1_alt"
@@ -64,7 +68,7 @@ collections:
             name: "service_2_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
 
           - label: "Commercial & Hospitality Image Description"
             name: "service_2_alt"
@@ -75,25 +79,30 @@ collections:
             name: "service_3_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
 
           - label: "Furniture & Procurement Image Description"
             name: "service_3_alt"
             widget: "string"
             required: false
 
+
   - name: "projects"
     label: "Projects"
     folder: "content/projects"
+
     create: true
     delete: true
+
     format: "json"
     extension: "json"
+
     slug: "{{slug}}"
     identifier_field: "title"
     summary: "{{title}} — {{category}}"
 
     fields:
+
       - label: "Project Title"
         name: "title"
         widget: "string"
@@ -101,6 +110,7 @@ collections:
       - label: "Category"
         name: "category"
         widget: "select"
+
         options:
           - "Residential"
           - "Commercial"
@@ -120,7 +130,7 @@ collections:
         name: "image"
         widget: "image"
         media_folder: "images/projects"
-        public_folder: "images/projects"
+        public_folder: "/images/projects"
 
       - label: "Image Description"
         name: "image_alt"
@@ -131,12 +141,13 @@ collections:
         name: "gallery"
         widget: "list"
         required: false
+
         field:
           label: "Gallery Image"
           name: "image"
           widget: "image"
           media_folder: "images/projects"
-          public_folder: "images/projects"
+          public_folder: "/images/projects"
 
       - label: "Display Order"
         name: "order"
@@ -154,18 +165,23 @@ collections:
         widget: "boolean"
         default: true
 
+
   - name: "gallery"
     label: "Gallery"
     folder: "content/gallery"
+
     create: true
     delete: true
+
     format: "json"
     extension: "json"
+
     slug: "{{slug}}"
     identifier_field: "title"
     summary: "{{title}}"
 
     fields:
+
       - label: "Title"
         name: "title"
         widget: "string"
@@ -174,7 +190,7 @@ collections:
         name: "image"
         widget: "image"
         media_folder: "images/gallery"
-        public_folder: "images/gallery"
+        public_folder: "/images/gallery"
 
       - label: "Caption"
         name: "caption"
@@ -192,18 +208,23 @@ collections:
         widget: "boolean"
         default: true
 
+
   - name: "testimonials"
     label: "Testimonials"
     folder: "content/testimonials"
+
     create: true
     delete: true
+
     format: "json"
     extension: "json"
+
     slug: "{{slug}}"
     identifier_field: "name"
     summary: "{{name}}"
 
     fields:
+
       - label: "Client Name"
         name: "name"
         widget: "string"
@@ -217,7 +238,7 @@ collections:
         widget: "image"
         required: false
         media_folder: "images/testimonials"
-        public_folder: "images/testimonials"
+        public_folder: "/images/testimonials"
 
       - label: "Display Order"
         name: "order"
