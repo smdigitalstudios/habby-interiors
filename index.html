@@ -234,23 +234,23 @@
     </div>
     <div class="contact-grid">
       <form class="reveal" id="contactForm">
-        <div class="field"><label for="fname">Full Name</label><input id="fname" name="fullName" type="text" placeholder="Your name" required></div>
-        <div class="field"><label for="femail">Email</label><input id="femail" name="email" type="email" placeholder="you@email.com" required></div>
-        <div class="field"><label for="fphone">Phone / WhatsApp</label><input id="fphone" name="phone" type="tel" placeholder="+234 ..."></div>
-        <div class="field">
-          <label for="ftype">Project Type</label>
-          <select id="ftype" name="projectType">
-            <option>Residential Interior</option>
-            <option>Commercial / Hospitality</option>
-            <option>Furniture Sourcing Only</option>
-            <option>Space Planning &amp; 3D Visualization</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="field"><label for="fmsg">Tell us about the space</label><textarea id="fmsg" name="message" placeholder="Location, size, budget range, timeline..."></textarea></div>
-        <button type="submit" class="btn btn-solid"><a href="#">Send Enquiry</a></button>
-
-      </form>
+  <div class="field"><label for="fname">Full Name</label><input id="fname" name="fullName" type="text" placeholder="Your name" required></div>
+  <div class="field"><label for="femail">Email</label><input id="femail" name="email" type="email" placeholder="you@email.com" required></div>
+  <div class="field"><label for="fphone">Phone / WhatsApp</label><input id="fphone" name="phone" type="tel" placeholder="+234 ..."></div>
+  <div class="field">
+    <label for="ftype">Project Type</label>
+    <select id="ftype" name="projectType">
+      <option>Residential Interior</option>
+      <option>Commercial / Hospitality</option>
+      <option>Furniture Sourcing Only</option>
+      <option>Space Planning &amp; 3D Visualization</option>
+      <option>Not sure yet</option>
+    </select>
+  </div>
+  <div class="field"><label for="fmsg">Tell us about the space</label><textarea id="fmsg" name="message" placeholder="Location, size, budget range, timeline..."></textarea></div>
+  <button type="submit" class="btn btn-solid">Send Enquiry</button>
+</form>
+      
       <div class="reveal">
         <div class="info-block">
           <h4>WhatsApp</h4>
@@ -385,6 +385,29 @@
   document.querySelectorAll('.hero-inner .hreveal').forEach((el,i)=>{
     setTimeout(()=>el.classList.add('in'), reducedMotion ? 0 : 150 + 120*i);
   });
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Replace with your business WhatsApp number: country code + number, no "+" or spaces
+  const whatsappNumber = '2348000000000';
+
+  const fullName = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const projectType = document.getElementById('ftype').value;
+  const message = document.getElementById('fmsg').value.trim();
+
+  const text =
+`New Enquiry from Website
+Name: ${fullName}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Project Type: ${projectType}
+Details: ${message || 'No additional details'}`;
+
+  const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+  window.open(waUrl, '_blank');
+});
 
   /* ---------- header scroll state + scroll progress ---------- */
   const header = document.getElementById('siteHeader');
