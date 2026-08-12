@@ -17,11 +17,11 @@ backend:
 
   # See who did what (optional)
   commit_messages:
-    create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-    update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-    delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-    uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
-    deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
     openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
 
 # Enable PKCE fields (optional, recommended)
@@ -31,10 +31,11 @@ auth:
   last_name_claim: last_name
   avatar_url_claim: avatar_url
 
-# Site branding & links shown in the Decap CMS UI (optional)
-logo_url: "a.png" # TODO: this looks like a placeholder — point it at your real logo file/URL
-site_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
-display_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
+# Better Decap + Bridge logo (optional)
+
+
+# Add site links in Decap CMS (optional)
+site_url: https://habbyinterior.netlify.app
 
 # This controls where general uploads land if an editor drags an image
 # into a field that doesn't have its own folder set below.
@@ -42,6 +43,10 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 publish_mode: simple
+logo_url: "a.png"
+
+site_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
+display_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
 
 collections:
   - name: "homepage"
@@ -55,14 +60,14 @@ collections:
             name: "logo"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
             hint: "Shown in the top-left corner of the site header."
 
           - label: "Hero Background Image"
             name: "hero_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
             hint: "The large background photo on the very first section of the homepage."
           - label: "Hero Image Description"
             name: "hero_image_alt"
@@ -73,7 +78,7 @@ collections:
             name: "service_1_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
           - label: "Service 1 Image Description"
             name: "service_1_alt"
             widget: "string"
@@ -82,7 +87,7 @@ collections:
             name: "service_2_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
           - label: "Service 2 Image Description"
             name: "service_2_alt"
             widget: "string"
@@ -119,7 +124,7 @@ collections:
       - label: "Cover Image"
         name: "image"
         widget: "image"
-        media_folder: "images/projects"
+        media_folder: "/images/projects"
         public_folder: "/images/projects"
         hint: "This is the main photo shown on the project card in the portfolio grid."
       - label: "Image Description"
