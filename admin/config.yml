@@ -1,74 +1,63 @@
-# Auth + Git write-access are handled by DecapBridge (decapbridge.com),
-# since Netlify Identity and Netlify's own Git Gateway are both deprecated.
-# Netlify Identity/Git Gateway do NOT need to be enabled anywhere for this to work.
-#
-# Get the two TODO values below from your DecapBridge dashboard after creating
-# the site there (Getting Started -> Add a site). See SETUP.md for the full walkthrough.
-# Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
   repo: smdigitalstudios/habby-interiors
   branch: main
   auth_type: pkce
-  base_url: https://auth.decapbridge.com
-  auth_endpoint: /sites/407485ee-998f-43eb-9d5b-c299364868e7/pkce
-  auth_token_endpoint: /sites/407485ee-998f-43eb-9d5b-c299364868e7/token
-  gateway_url: https://gateway.decapbridge.com
+  base_url: "https://auth.decapbridge.com"
+  auth_endpoint: "/sites/407485ee-998f-43eb-9d5b-c299364868e7/pkce"
+  auth_token_endpoint: "/sites/407485ee-998f-43eb-9d5b-c299364868e7/token"
+  gateway_url: "https://gateway.decapbridge.com"
 
-  # See who did what (optional)
-  commit_messages:
-    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
-    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+commit_messages:
+  create: 'Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  update: 'Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  delete: 'Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  uploadMedia: 'Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  deleteMedia: 'Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge'
+  openAuthoring: 'Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge'
 
-# Enable PKCE fields (optional, recommended)
 auth:
   email_claim: email
   first_name_claim: first_name
   last_name_claim: last_name
   avatar_url_claim: avatar_url
 
-# Better Decap + Bridge logo (optional)
-
-
-# Add site links in Decap CMS (optional)
-
-
-# This controls where general uploads land if an editor drags an image
-# into a field that doesn't have its own folder set below.
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 publish_mode: simple
-logo_url: "a.png"
 
-site_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
-display_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
+logo_url: "/a.png"
+
+site_url: "https://habbyinterior.netlify.app"
+display_url: "https://habbyinterior.netlify.app"
 
 collections:
+
   - name: "homepage"
     label: "Homepage"
     files:
+
       - name: "homepage"
         label: "Homepage Images"
         file: "content/homepage.json"
+
         fields:
+
           - label: "Logo"
             name: "logo"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
             hint: "Shown in the top-left corner of the site header."
 
           - label: "Hero Background Image"
             name: "hero_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
             hint: "The large background photo on the very first section of the homepage."
+
           - label: "Hero Image Description"
             name: "hero_image_alt"
             widget: "string"
@@ -78,7 +67,8 @@ collections:
             name: "service_1_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
+
           - label: "Service 1 Image Description"
             name: "service_1_alt"
             widget: "string"
@@ -87,7 +77,8 @@ collections:
             name: "service_2_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
+
           - label: "Service 2 Image Description"
             name: "service_2_alt"
             widget: "string"
@@ -96,10 +87,12 @@ collections:
             name: "service_3_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "images/homepage"
+            public_folder: "/images/homepage"
+
           - label: "Service 3 Image Description"
             name: "service_3_alt"
             widget: "string"
+
 
   - name: "projects"
     label: "Projects"
@@ -111,7 +104,9 @@ collections:
     slug: "{{slug}}"
     identifier_field: "title"
     summary: "{{title}} — {{category}}"
+
     fields:
+
       - label: "Project Title"
         name: "title"
         widget: "string"
@@ -119,14 +114,18 @@ collections:
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["Residential", "Commercial", "Hospitality"]
+        options:
+          - "Residential"
+          - "Commercial"
+          - "Hospitality"
 
       - label: "Cover Image"
         name: "image"
         widget: "image"
         media_folder: "images/projects"
-        public_folder: "images/projects"
+        public_folder: "/images/projects"
         hint: "This is the main photo shown on the project card in the portfolio grid."
+
       - label: "Image Description"
         name: "image_alt"
         widget: "string"
