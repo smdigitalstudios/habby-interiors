@@ -35,7 +35,7 @@ auth:
 
 
 # Add site links in Decap CMS (optional)
-site_url: https://habbyinterior.netlify.app
+site_url: "https://habbyinterior.netlify.app"
 
 # This controls where general uploads land if an editor drags an image
 # into a field that doesn't have its own folder set below.
@@ -96,7 +96,7 @@ collections:
             name: "service_3_image"
             widget: "image"
             media_folder: "images/homepage"
-            public_folder: "/images/homepage"
+            public_folder: "images/homepage"
           - label: "Service 3 Image Description"
             name: "service_3_alt"
             widget: "string"
@@ -124,8 +124,8 @@ collections:
       - label: "Cover Image"
         name: "image"
         widget: "image"
-        media_folder: "/images/projects"
-        public_folder: "/images/projects"
+        media_folder: "images/projects"
+        public_folder: "images/projects"
         hint: "This is the main photo shown on the project card in the portfolio grid."
       - label: "Image Description"
         name: "image_alt"
