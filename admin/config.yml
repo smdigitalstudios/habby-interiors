@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: smdigitalstudios/habby-interior
+  repo: smdigitalstudios/habby-interiors
   branch: main
 
   # DecapBridge PKCE authentication
