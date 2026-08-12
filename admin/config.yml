@@ -3,27 +3,8 @@ backend:
   repo: smdigitalstudios/habby-interiors
   branch: main
 
-  # DecapBridge PKCE authentication
-  auth_type: pkce
-  base_url: "https://auth.decapbridge.com"
-  auth_endpoint: "/sites/3fa3db82-cc2f-436c-89c4-8fdf537f44e8/pkce"
-  auth_token_endpoint: "/sites/3fa3db82-cc2f-436c-89c4-8fdf537f44e8/token"
+  identity_url: "https://auth.decapbridge.com/sites/3fa3db82-cc2f-436c-89c4-8fdf537f44e8"
   gateway_url: "https://gateway.decapbridge.com"
-  # NOTE: DecapBridge's git-gateway is multi-tenant (it identifies your site
-  # from the authenticated session, not the URL), so gateway_url does NOT
-  # need a /github or /gitlab suffix the way a self-hosted git-gateway would.
-  # This differs from generic Decap CMS PKCE docs on purpose - leave as-is.
-  #
-  # VERIFY: the official Decap CMS PKCE spec also includes an `app_id`
-  # (OAuth client ID) field. Pull up the exact snippet from your DecapBridge
-  # dashboard (your site > config.yml) and confirm one wasn't dropped here
-  # when the file was reformatted. If DecapBridge's generated template
-  # doesn't include one, you're fine - their site-scoped auth_endpoint
-  # already identifies the site without it.
-
-# --------------------------------------------------
-# COMMIT MESSAGES
-# --------------------------------------------------
 
 commit_messages:
   create: 'Create {{collection}} "{{slug}}" - {{author-name}} via Habby Interiors CMS'
@@ -33,75 +14,29 @@ commit_messages:
   deleteMedia: 'Delete "{{path}}" - {{author-name}} via Habby Interiors CMS'
   openAuthoring: 'Message {{message}} - {{author-name}} via Habby Interiors CMS'
 
-# --------------------------------------------------
-# AUTHENTICATION INFORMATION
-# --------------------------------------------------
-
-auth:
-  email_claim: email
-  first_name_claim: first_name
-  last_name_claim: last_name
-  avatar_url_claim: avatar_url
-
-# --------------------------------------------------
-# WEBSITE INFORMATION
-# --------------------------------------------------
-
 site_url: "https://habbyinterior.netlify.app"
 display_url: "https://habbyinterior.netlify.app"
-
-# --------------------------------------------------
-# MEDIA
-# --------------------------------------------------
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 publish_mode: simple
 
-# Habby Interiors logo
-# VERIFY: "/a.png" reads like a placeholder filename. Confirm this file
-# actually exists at your repo/site root and is the real Habby Interiors
-# logo, not a leftover test upload. If it 404s, the CMS silently falls
-# back to the generic default Decap CMS logo on the login screen, which
-# would look "unbranded" even though login/redirect worked correctly.
 logo_url: "/a.png"
 
-# --------------------------------------------------
-# COLLECTIONS
-# --------------------------------------------------
-
 collections:
-
-  # ==================================================
-  # HOMEPAGE
-  # ==================================================
-
   - name: "homepage"
     label: "Homepage"
-
     files:
-
       - name: "homepage"
         label: "Homepage Images"
         file: "content/homepage.json"
-
         fields:
-
-          # ------------------------------------------
-          # LOGO
-          # ------------------------------------------
-
           - label: "Logo"
             name: "logo"
             widget: "image"
             media_folder: "images/homepage"
             public_folder: "/images/homepage"
-            hint: "Logo displayed in the website header."
-
-          # ------------------------------------------
-          # HERO
-          # ------------------------------------------
 
           - label: "Hero Background Image"
             name: "hero_image"
@@ -113,11 +48,6 @@ collections:
             name: "hero_image_alt"
             widget: "string"
             required: false
-            hint: "Short description of the hero image."
-
-          # ------------------------------------------
-          # SERVICE 1
-          # ------------------------------------------
 
           - label: "Residential Interiors Image"
             name: "service_1_image"
@@ -130,10 +60,6 @@ collections:
             widget: "string"
             required: false
 
-          # ------------------------------------------
-          # SERVICE 2
-          # ------------------------------------------
-
           - label: "Commercial & Hospitality Image"
             name: "service_2_image"
             widget: "image"
@@ -144,10 +70,6 @@ collections:
             name: "service_2_alt"
             widget: "string"
             required: false
-
-          # ------------------------------------------
-          # SERVICE 3
-          # ------------------------------------------
 
           - label: "Furniture & Procurement Image"
             name: "service_3_image"
@@ -160,38 +82,21 @@ collections:
             widget: "string"
             required: false
 
-
-  # ==================================================
-  # PROJECTS
-  # ==================================================
-
   - name: "projects"
     label: "Projects"
     folder: "content/projects"
-
     create: true
     delete: true
-
     format: "json"
     extension: "json"
-
     slug: "{{slug}}"
     identifier_field: "title"
     summary: "{{title}} — {{category}}"
 
     fields:
-
-      # ------------------------------------------
-      # PROJECT TITLE
-      # ------------------------------------------
-
       - label: "Project Title"
         name: "title"
         widget: "string"
-
-      # ------------------------------------------
-      # CATEGORY
-      # ------------------------------------------
 
       - label: "Category"
         name: "category"
@@ -201,53 +106,31 @@ collections:
           - "Commercial"
           - "Hospitality"
 
-      # ------------------------------------------
-      # LOCATION
-      # ------------------------------------------
-
       - label: "Location"
         name: "location"
         widget: "string"
         required: false
-
-      # ------------------------------------------
-      # DESCRIPTION
-      # ------------------------------------------
 
       - label: "Description"
         name: "description"
         widget: "text"
         required: false
 
-      # ------------------------------------------
-      # COVER IMAGE
-      # ------------------------------------------
-
       - label: "Cover Image"
         name: "image"
         widget: "image"
         media_folder: "images/projects"
         public_folder: "/images/projects"
-        hint: "Main image displayed for this project."
-
-      # ------------------------------------------
-      # IMAGE ALT TEXT
-      # ------------------------------------------
 
       - label: "Image Description"
         name: "image_alt"
         widget: "string"
         required: false
 
-      # ------------------------------------------
-      # PROJECT GALLERY
-      # ------------------------------------------
-
       - label: "Project Gallery"
         name: "gallery"
         widget: "list"
         required: false
-
         field:
           label: "Gallery Image"
           name: "image"
@@ -255,66 +138,37 @@ collections:
           media_folder: "images/projects"
           public_folder: "/images/projects"
 
-      # ------------------------------------------
-      # DISPLAY ORDER
-      # ------------------------------------------
-
       - label: "Display Order"
         name: "order"
         widget: "number"
         value_type: "int"
         default: 1
 
-      # ------------------------------------------
-      # FEATURED
-      # ------------------------------------------
-
       - label: "Featured Project"
         name: "featured"
         widget: "boolean"
         default: false
-
-      # ------------------------------------------
-      # PUBLISHED
-      # ------------------------------------------
 
       - label: "Published"
         name: "published"
         widget: "boolean"
         default: true
 
-
-  # ==================================================
-  # GALLERY
-  # ==================================================
-
   - name: "gallery"
     label: "Gallery"
     folder: "content/gallery"
-
     create: true
     delete: true
-
     format: "json"
     extension: "json"
-
     slug: "{{slug}}"
     identifier_field: "title"
     summary: "{{title}}"
 
     fields:
-
-      # ------------------------------------------
-      # TITLE
-      # ------------------------------------------
-
       - label: "Title"
         name: "title"
         widget: "string"
-
-      # ------------------------------------------
-      # IMAGE
-      # ------------------------------------------
 
       - label: "Image"
         name: "image"
@@ -322,18 +176,10 @@ collections:
         media_folder: "images/gallery"
         public_folder: "/images/gallery"
 
-      # ------------------------------------------
-      # CAPTION
-      # ------------------------------------------
-
       - label: "Caption"
         name: "caption"
         widget: "string"
         required: false
-
-      # ------------------------------------------
-      # ORDER
-      # ------------------------------------------
 
       - label: "Display Order"
         name: "order"
@@ -341,55 +187,30 @@ collections:
         value_type: "int"
         default: 1
 
-      # ------------------------------------------
-      # PUBLISHED
-      # ------------------------------------------
-
       - label: "Published"
         name: "published"
         widget: "boolean"
         default: true
 
-
-  # ==================================================
-  # TESTIMONIALS
-  # ==================================================
-
   - name: "testimonials"
     label: "Testimonials"
     folder: "content/testimonials"
-
     create: true
     delete: true
-
     format: "json"
     extension: "json"
-
     slug: "{{slug}}"
     identifier_field: "name"
     summary: "{{name}}"
 
     fields:
-
-      # ------------------------------------------
-      # CLIENT NAME
-      # ------------------------------------------
-
       - label: "Client Name"
         name: "name"
         widget: "string"
 
-      # ------------------------------------------
-      # TESTIMONIAL
-      # ------------------------------------------
-
       - label: "Testimonial"
         name: "text"
         widget: "text"
-
-      # ------------------------------------------
-      # CLIENT IMAGE
-      # ------------------------------------------
 
       - label: "Client Image"
         name: "image"
@@ -398,19 +219,11 @@ collections:
         media_folder: "images/testimonials"
         public_folder: "/images/testimonials"
 
-      # ------------------------------------------
-      # DISPLAY ORDER
-      # ------------------------------------------
-
       - label: "Display Order"
         name: "order"
         widget: "number"
         value_type: "int"
         default: 1
-
-      # ------------------------------------------
-      # PUBLISHED
-      # ------------------------------------------
 
       - label: "Published"
         name: "published"
