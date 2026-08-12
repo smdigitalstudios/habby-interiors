@@ -1,0 +1,11 @@
+{
+  "logo": "/a.png",
+  "hero_image": "https://images.pexels.com/photos/19689234/pexels-photo-19689234.jpeg?auto=compress&cs=tinysrgb&w=1920",
+  "hero_image_alt": "Elegant lounge interior with ambient lighting",
+  "service_1_image": "https://images.pexels.com/photos/6636320/pexels-photo-6636320.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "service_1_alt": "Cozy living room with marble accent wall",
+  "service_2_image": "https://images.pexels.com/photos/29649754/pexels-photo-29649754.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "service_2_alt": "Elegant restaurant interior with chandeliers",
+  "service_3_image": "https://images.pexels.com/photos/12284845/pexels-photo-12284845.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "service_3_alt": "Sophisticated lounge with velvet couch and armchairs"
+}

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habby Interior — Interior Design Studio</title>
+<meta name="description" content="Habby Interior is a Nigerian interior design studio crafting bespoke residential, commercial and hospitality interiors — from concept to installation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="a.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header id="siteHeader">
+  <a href="#top" class="logo" aria-label="AA Luxury Concept — Home">
+    <span class="mark-wrap">
+      <img class="mark-img" src="a.png" alt="" onerror="this.closest('.mark-wrap').classList.add('img-fallback')">
+      <span class="mark-fallback" aria-hidden="true">AA</span>
+    </span>
+    <span class="word" aria-hidden="true">Habby Interior<span>Interior Design Studio</span></span>
+  </a>
+  <nav id="siteNav">
+    <ul>
+      <li><a href="#studio" data-nav>Studio</a></li>
+      <li><a href="#services" data-nav>Services</a></li>
+      <li><a href="#process" data-nav>Process</a></li>
+      <li><a href="#portfolio" data-nav>Portfolio</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-mobile-cta">Book a Consultation</a>
+  </nav>
+  <a href="#contact" class="nav-cta">Book a Consultation</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-controls="siteNav" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<div id="top"></div>
+
+<section class="hero">
+  <div class="hero-bg" data-bg="https://images.pexels.com/photos/19689234/pexels-photo-19689234.jpeg?auto=compress&cs=tinysrgb&w=1920" role="img" aria-label="Elegant lounge interior with ambient lighting"></div>
+  <div class="wrap hero-inner">
+    <h1 class="hreveal">Interiors built on <em>material,</em><br>proportion & restraint.</h1>
+    <p class="lead hreveal">Habby Interiors transforms homes, offices, and commercial spaces into timeless interiors—combining creativity, craftsmanship, and functionality in every detail.</p>
+    <div class="hero-actions hreveal">
+      <a href="#contact" class="btn btn-solid">Book a Consultation</a>
+      <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Residential Interiors</span><span>Commercial &amp; Hospitality</span><span>Furniture Sourcing</span><span>Space Planning</span><span>3D Visualization</span>
+      <span>Residential Interiors</span><span>Commercial &amp; Hospitality</span><span>Furniture Sourcing</span><span>Space Planning</span><span>3D Visualization</span>
+    </div>
+  </div>
+</section>
+
+<section class="statement light" id="studio">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Studio</span>
+    <h2 class="reveal" style="margin-top:26px;">Habby Interiors is a design studio for people who appreciate the difference between a space that is simply decorated and one that is <em>thoughtfully crafted.</em> We work closely with every client—from the first consultation to the final styling—ensuring every material, texture, finish, and detail is carefully chosen to create interiors that are timeless, functional, and uniquely yours.</h2>
+    <div class="statement-foot reveal">
+      <p>Every project starts with the architecture of the space itself — light, flow, structure — before a single material or furniture piece is chosen.</p>
+      <a href="#contact" class="btn btn-outline on-light">Start a Project →</a>
+    </div>
+  </div>
+</section>
+
+<section class="services light" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Four disciplines, one continuous process.</h2>
+      <p>From the first floor plan to the finished, styled room — handled as one uninterrupted project, not four separate hand-offs.</p>
+    </div>
+    <div class="service-grid reveal">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <div class="swatch s1" data-bg="https://images.pexels.com/photos/6636320/pexels-photo-6636320.jpeg?auto=compress&cs=tinysrgb&w=900" role="img" aria-label="Cozy living room with marble accent wall"></div>
+        <h3>Residential Interiors</h3>
+        <p>Full-home and single-room design — layout, materials, furniture and styling built around how you actually live.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <div class="swatch s2" data-bg="https://images.pexels.com/photos/29649754/pexels-photo-29649754.jpeg?auto=compress&cs=tinysrgb&w=900" role="img" aria-label="Elegant restaurant interior with chandeliers"></div>
+        <h3>Commercial &amp; Hospitality</h3>
+        <p>Offices, showrooms, restaurants and short-let spaces designed to hold up under daily use without losing character.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <div class="swatch s3" data-bg="https://images.pexels.com/photos/12284845/pexels-photo-12284845.jpeg?auto=compress&cs=tinysrgb&w=900" role="img" aria-label="Sophisticated lounge with velvet couch and armchairs"></div>
+        <h3>Furniture &amp; Procurement</h3>
+        <p>Sourcing, custom joinery and furnishing — handled directly so quality and lead times stay within our control.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <div class="swatch s4"></div>
+        <h3>Space Planning &amp; 3D Visualization</h3>
+        <p>Layouts and renders that let you walk through the concept and approve every material before installation begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process dark" id="process">
+  <div class="wrap">
+    <span class="eyebrow reveal">How We Work</span>
+    <div class="section-head reveal" style="margin-top:26px;margin-bottom:0;">
+      <h2>From first walkthrough to final styling.</h2>
+      <p>A fixed sequence, kept flexible enough to fit around your timeline and budget.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item reveal">
+        <span class="pnum">01</span>
+        <h3>Discovery &amp; Brief</h3>
+        <p>A walkthrough of the space, a conversation about how you use it, and a clear scope, budget and timeline before any design begins.</p>
+      </div>
+      <div class="process-item reveal">
+        <span class="pnum">02</span>
+        <h3>Concept &amp; Moodboard</h3>
+        <p>Layout options, material palette and furniture direction, presented as a concept you can react to and refine with us.</p>
+      </div>
+      <div class="process-item reveal">
+        <span class="pnum">03</span>
+        <h3>Sourcing &amp; Procurement</h3>
+        <p>Furniture, fittings and finishes sourced or built to spec, with every order tracked against the agreed plan.</p>
+      </div>
+      <div class="process-item reveal">
+        <span class="pnum">04</span>
+        <h3>Installation &amp; Styling</h3>
+        <p>Delivery, placement and final styling — the space handed back to you finished, not just furnished.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="portfolio dark" id="portfolio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Recent work.</h2>
+      <p>A selection of the residential, commercial and hospitality spaces we've designed and furnished.</p>
+    </div>
+    <div class="port-grid reveal">
+      <div class="port-card"><div class="thumb p1" data-bg="https://images.pexels.com/photos/19689228/pexels-photo-19689228.jpeg?auto=compress&cs=tinysrgb&w=1000" role="img" aria-label="Luxury living room with blue sofas"></div><div class="port-info"><span class="cat">Residential</span><h3>Duplex Interior</h3></div></div>
+      <div class="port-card"><div class="thumb p2" data-bg="https://images.pexels.com/photos/19689227/pexels-photo-19689227.jpeg?auto=compress&cs=tinysrgb&w=1000" role="img" aria-label="Elegant hotel lounge with plush seating"></div><div class="port-info"><span class="cat">Hospitality</span><h3>Boutique Lounge</h3></div></div>
+      <div class="port-card"><div class="thumb p3" data-bg="https://images.pexels.com/photos/15306470/pexels-photo-15306470.jpeg?auto=compress&cs=tinysrgb&w=1000" role="img" aria-label="Interior of a modern retail clothing store"></div><div class="port-info"><span class="cat">Commercial</span><h3>Retail Concept Store</h3></div></div>
+      <div class="port-card"><div class="thumb p4" data-bg="https://images.pexels.com/photos/12284842/pexels-photo-12284842.jpeg?auto=compress&cs=tinysrgb&w=1000" role="img" aria-label="Stylish contemporary living room"></div><div class="port-info"><span class="cat">Residential</span><h3>Penthouse Living Room</h3></div></div>
+      <div class="port-card"><div class="thumb p5" data-bg="https://images.pexels.com/photos/33342710/pexels-photo-33342710.jpeg?auto=compress&cs=tinysrgb&w=1000" role="img" aria-label="Modern luxury office interior"></div><div class="port-info"><span class="cat">Commercial</span><h3>Executive Office Suite</h3></div></div>
+      <div class="port-card"><div class="thumb p6" data-bg="https://images.pexels.com/photos/8135502/pexels-photo-8135502.jpeg?auto=compress&cs=tinysrgb&w=1000" role="img" aria-label="Bright luxury bedroom with gold accents"></div><div class="port-info"><span class="cat">Residential</span><h3>Master Bedroom Suite</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="why light" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Why clients work with us.</h2>
+      <p>The four things that stay consistent from a single room to a full building.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="num-line"><span>i.</span><i></i></div>
+        <h3>Bespoke</h3>
+        <p>No fixed packages. Every layout, material and furniture piece is chosen for your specific space and brief.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="num-line"><span>ii.</span><i></i></div>
+        <h3>Detail-Led</h3>
+        <p>Hardware, trims and finishes are treated as design decisions, not afterthoughts added at the end.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="num-line"><span>iii.</span><i></i></div>
+        <h3>Full-Service</h3>
+        <p>Design, sourcing, procurement and installation handled under one roof, with one point of contact throughout.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="num-line"><span>iv.</span><i></i></div>
+        <h3>On Schedule</h3>
+        <p>A clear timeline agreed at the outset, and tracked order-by-order through to final installation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="follow dark">
+  <div class="wrap">
+    <div class="follow-box reveal">
+      <h2>See the process behind every project on <em>TikTok.</em></h2>
+      <a href="https://www.tiktok.com/@habby.interior" target="_blank" rel="noopener" class="btn btn-solid">@habby.interior →</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq light" id="faq">
+  <div class="wrap">
+    <span class="eyebrow reveal">Questions</span>
+    <div class="section-head reveal" style="margin-top:26px;margin-bottom:0;">
+      <h2>Frequently asked.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">What's the typical timeline for a full home interior?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Most full-home projects run 8–16 weeks from signed concept to final installation, depending on scope, furniture lead times and how much custom joinery is involved. Single-room projects are typically faster.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Do you source and supply the furniture yourselves?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. We handle sourcing, procurement and custom joinery directly, which keeps quality and lead times within our control rather than passed between separate vendors.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Can I see the design before anything is ordered?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — every project moves through a concept and moodboard stage, with 3D visualization available, so you can approve the direction and materials before procurement begins.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Do you take on commercial and hospitality projects?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. Alongside residential interiors, we design offices, showrooms, restaurants and short-let spaces built to handle daily use.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How do I start a project with Habby Interior?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Send us your space, budget range and timeline through the contact form below or on WhatsApp, and we'll schedule an initial walkthrough or call.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact dark" id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Get In Touch</span>
+    <div class="section-head reveal" style="margin-top:26px;margin-bottom:0;">
+      <h2>Start your project.</h2>
+      <p>Tell us about the space and we'll be in touch to schedule a walkthrough.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="reveal" id="contactForm">
+        <div class="field"><label for="fname">Full Name</label><input id="fname" name="fullName" type="text" placeholder="Your name" required></div>
+        <div class="field"><label for="femail">Email</label><input id="femail" name="email" type="email" placeholder="you@email.com" required></div>
+        <div class="field"><label for="fphone">Phone / WhatsApp</label><input id="fphone" name="phone" type="tel" placeholder="+234 ..."></div>
+        <div class="field">
+          <label for="ftype">Project Type</label>
+          <select id="ftype" name="projectType">
+            <option>Residential Interior</option>
+            <option>Commercial / Hospitality</option>
+            <option>Furniture Sourcing Only</option>
+            <option>Space Planning &amp; 3D Visualization</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field"><label for="fmsg">Tell us about the space</label><textarea id="fmsg" name="message" placeholder="Location, size, budget range, timeline..."></textarea></div>
+        <button type="submit" class="btn btn-solid"><a href="#">Send Enquiry</a></button>
+
+      </form>
+      <div class="reveal">
+        <div class="info-block">
+          <h4>WhatsApp</h4>
+          <a href="https://wa.me/2348115648615" target="_blank" rel="noopener">+234 811 564 8615</a>
+        </div>
+        <div class="info-block">
+          <h4>Email</h4>
+          <a href="mailto:Habbyinterior@gmail.com">Habbyinterior@gmail.com</a>
+        </div>
+        <div class="info-block">
+          <h4>Studio</h4>
+          <p>Nigeria</p>
+        </div>
+        <div class="info-block">
+          <h4>Follow</h4>
+          <div class="social-row">
+            <a href="https://www.tiktok.com/@habby.interior" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.85-.9-1.32-2.08-1.32-3.31h-3.13v13.32c0 1.5-1.22 2.72-2.73 2.72a2.73 2.73 0 0 1-2.73-2.72 2.73 2.73 0 0 1 2.73-2.73c.28 0 .55.04.8.12v-3.19a5.9 5.9 0 0 0-.8-.05A5.86 5.86 0 0 0 3.56 15.8a5.86 5.86 0 0 0 5.86 5.86 5.86 5.86 0 0 0 5.86-5.86V9.1a8.3 8.3 0 0 0 4.85 1.56V7.53a4.9 4.9 0 0 1-3.53-1.71z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="map-ph">Studio location map — add embed once address is confirmed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="word">Habby Interior</div>
+        <p>An interior design studio for residential, commercial and hospitality spaces — Nigeria.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Studio</h5>
+          <a href="#studio">About</a>
+          <a href="#process">Process</a>
+        </div>
+        <div class="foot-col">
+          <h5>Work</h5>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+        </div>
+        <div class="foot-col">
+          <h5>Connect</h5>
+          <a href="https://www.tiktok.com/@habby.interior" target="_blank" rel="noopener">TikTok</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Habby Interior All rights reserved.</span>
+      <span>Designed by <a href="https://smdigitalstudios.netlify.app/" style="font-weight: bolder;" target="_blank">SM Digital Studios</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Thanks — your enquiry has been noted. We'll reach out shortly.</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- CMS content hydration ----------
+     Pulls logo / hero / service images from content/homepage.json (edited via Decap CMS)
+     and the portfolio grid from data/projects.json (built from content/projects/*.json
+     by scripts/build-content.js at deploy time). If either fetch fails — e.g. before the
+     CMS has been used for the first time — the page silently keeps the hardcoded content
+     already in this HTML, so nothing ever breaks. */
+  async function hydrateFromCMS(){
+    try {
+      const [homeRes, projRes] = await Promise.allSettled([
+        fetch('/content/homepage.json', {cache:'no-store'}),
+        fetch('/data/projects.json', {cache:'no-store'})
+      ]);
+
+      if (homeRes.status === 'fulfilled' && homeRes.value.ok) {
+        const home = await homeRes.value.json();
+
+        const logoImg = document.querySelector('.mark-img');
+        if (logoImg && home.logo) logoImg.src = home.logo;
+
+        const heroBg = document.querySelector('.hero-bg');
+        if (heroBg && home.hero_image) {
+          heroBg.dataset.bg = home.hero_image;
+          if (home.hero_image_alt) heroBg.setAttribute('aria-label', home.hero_image_alt);
+        }
+
+        [
+          { cls: '.swatch.s1', img: home.service_1_image, alt: home.service_1_alt },
+          { cls: '.swatch.s2', img: home.service_2_image, alt: home.service_2_alt },
+          { cls: '.swatch.s3', img: home.service_3_image, alt: home.service_3_alt }
+        ].forEach(({ cls, img, alt }) => {
+          const el = document.querySelector(cls);
+          if (el && img) {
+            el.dataset.bg = img;
+            if (alt) el.setAttribute('aria-label', alt);
+          }
+        });
+      }
+
+      if (projRes.status === 'fulfilled' && projRes.value.ok) {
+        const projects = await projRes.value.json();
+        if (Array.isArray(projects) && projects.length) {
+          const grid = document.querySelector('.port-grid');
+          if (grid) {
+            grid.innerHTML = projects.map((p, i) => {
+              const placeholderClass = 'p' + ((i % 6) + 1); // reuses existing loading-placeholder colors
+              const alt = (p.image_alt || p.title || '').replace(/"/g, '&quot;');
+              const cat = (p.category || '').replace(/</g, '&lt;');
+              const title = (p.title || '').replace(/</g, '&lt;');
+              const img = (p.image || '').replace(/"/g, '&quot;');
+              return '<div class="port-card"><div class="thumb ' + placeholderClass + '" data-bg="' + img + '" role="img" aria-label="' + alt + '"></div><div class="port-info"><span class="cat">' + cat + '</span><h3>' + title + '</h3></div></div>';
+            }).join('');
+          }
+        }
+      }
+    } catch (err) {
+      console.warn('[cms] Falling back to default homepage content:', err);
+    }
+  }
+
+  /* ---------- hero entrance (no loader — plays as soon as the page parses) ---------- */
+  const heroStyle = document.createElement('style');
+  heroStyle.textContent = '.hreveal{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.22,.9,.24,1), transform .9s cubic-bezier(.22,.9,.24,1);} .hreveal.in{opacity:1;transform:translateY(0);}';
+  document.head.appendChild(heroStyle);
+  document.querySelectorAll('.hero-inner .hreveal').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('in'), reducedMotion ? 0 : 150 + 120*i);
+  });
+
+  /* ---------- header scroll state + scroll progress ---------- */
+  const header = document.getElementById('siteHeader');
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = docH>0 ? (window.scrollY/docH*100)+'%' : '0%';
+  });
+
+  /* ---------- mobile nav ---------- */
+  const toggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+
+  function setNavOpen(open){
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  toggle.addEventListener('click', () => {
+    setNavOpen(!document.body.classList.contains('nav-open'));
+  });
+  // tap the dark backdrop (not a link) to close
+  siteNav.addEventListener('click', (e) => {
+    if(e.target === siteNav) setNavOpen(false);
+  });
+  // any nav link (including the mobile "Book a Consultation" CTA) closes the menu
+  document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click', ()=> setNavOpen(false)));
+  // Esc closes it too
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && document.body.classList.contains('nav-open')) setNavOpen(false);
+  });
+
+  /* ---------- active nav link on scroll ---------- */
+  const navLinks = document.querySelectorAll('nav a[data-nav]');
+  const sections = Array.from(navLinks).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const navObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const id = '#'+entry.target.id;
+      const link = document.querySelector('nav a[href="'+id+'"]');
+      if(!link) return;
+      if(entry.isIntersecting){
+        navLinks.forEach(l=>l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-45% 0px -45% 0px'});
+  sections.forEach(s=>navObserver.observe(s));
+
+  /* ---------- scroll reveal ---------- */
+  const revealEls = document.querySelectorAll('.reveal:not(.in)');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  /* ---------- lazy-loaded background photography ----------
+     Waits for hydrateFromCMS() to finish so it observes the final set of
+     data-bg elements, including any portfolio cards just rebuilt from CMS content. */
+  hydrateFromCMS().finally(() => {
+    const lazyEls = document.querySelectorAll('[data-bg]');
+    const bgObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target;
+          const src = el.dataset.bg;
+          const img = new Image();
+          img.onload = ()=>{ el.style.backgroundImage = 'url(' + src + ')'; el.classList.add('loaded'); };
+          img.src = src;
+          bgObserver.unobserve(el);
+        }
+      });
+    }, {rootMargin:'250px'});
+    lazyEls.forEach(el=>bgObserver.observe(el));
+  });
+
+  /* ---------- faq accordion ---------- */
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>{ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null; });
+      if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; }
+    });
+  });
+
+  /* ---------- contact form (static — no backend wired up) ---------- */
+  const form = document.getElementById('contactForm');
+  const toast = document.getElementById('toast');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'), 3600);
+    form.reset();
+  });
+</script>
+</body>
+</html>

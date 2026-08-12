@@ -1,0 +1,126 @@
+# Auth + Git write-access are handled by DecapBridge (decapbridge.com),
+# since Netlify Identity and Netlify's own Git Gateway are both deprecated.
+# Netlify Identity/Git Gateway do NOT need to be enabled anywhere for this to work.
+#
+# Get the two TODO values below from your DecapBridge dashboard after creating
+# the site there (Getting Started -> Add a site). See SETUP.md for the full walkthrough.
+backend:
+  name: git-gateway
+  repo: YOUR-GITHUB-USERNAME/habby-interior # TODO: your GitHub org/repo
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/YOUR-SITE-ID # TODO: DecapBridge gives you this
+  gateway_url: https://gateway.decapbridge.com
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}" — {{author-name}} via Habby Interior CMS'
+    update: 'Update {{collection}} "{{slug}}" — {{author-name}} via Habby Interior CMS'
+    delete: 'Delete {{collection}} "{{slug}}" — {{author-name}} via Habby Interior CMS'
+    uploadMedia: 'Upload "{{path}}" — {{author-name}} via Habby Interior CMS'
+    deleteMedia: 'Delete "{{path}}" — {{author-name}} via Habby Interior CMS'
+
+# This controls where general uploads land if an editor drags an image
+# into a field that doesn't have its own folder set below.
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+logo_url: "/a.png"
+
+site_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
+display_url: "https://habbyinterior.netlify.app" # TODO: replace with the real live URL
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "homepage"
+        label: "Homepage Images"
+        file: "content/homepage.json"
+        fields:
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+            media_folder: "/images/homepage"
+            public_folder: "/images/homepage"
+            hint: "Shown in the top-left corner of the site header."
+
+          - label: "Hero Background Image"
+            name: "hero_image"
+            widget: "image"
+            media_folder: "/images/homepage"
+            public_folder: "/images/homepage"
+            hint: "The large background photo on the very first section of the homepage."
+          - label: "Hero Image Description"
+            name: "hero_image_alt"
+            widget: "string"
+            hint: "A short description of the photo, for visitors using screen readers."
+
+          - label: "Service 1 Image — Residential Interiors"
+            name: "service_1_image"
+            widget: "image"
+            media_folder: "/images/homepage"
+            public_folder: "/images/homepage"
+          - label: "Service 1 Image Description"
+            name: "service_1_alt"
+            widget: "string"
+
+          - label: "Service 2 Image — Commercial & Hospitality"
+            name: "service_2_image"
+            widget: "image"
+            media_folder: "/images/homepage"
+            public_folder: "/images/homepage"
+          - label: "Service 2 Image Description"
+            name: "service_2_alt"
+            widget: "string"
+
+          - label: "Service 3 Image — Furniture & Procurement"
+            name: "service_3_image"
+            widget: "image"
+            media_folder: "/images/homepage"
+            public_folder: "/images/homepage"
+          - label: "Service 3 Image Description"
+            name: "service_3_alt"
+            widget: "string"
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    delete: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    identifier_field: "title"
+    summary: "{{title}} — {{category}}"
+    fields:
+      - label: "Project Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Residential", "Commercial", "Hospitality"]
+
+      - label: "Cover Image"
+        name: "image"
+        widget: "image"
+        media_folder: "/images/projects"
+        public_folder: "/images/projects"
+        hint: "This is the main photo shown on the project card in the portfolio grid."
+      - label: "Image Description"
+        name: "image_alt"
+        widget: "string"
+        hint: "A short description of the photo, for visitors using screen readers."
+
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        default: 1
+        hint: "Projects are shown left to right, lowest number first."
+
+      - label: "Published"
+        name: "published"
+        widget: "boolean"
+        default: true
+        hint: "Turn this off to hide the project from the live site without deleting it."

@@ -1,0 +1,8 @@
+[build]
+  command = "node scripts/build-content.js"
+  publish = "."
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

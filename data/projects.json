@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Duplex Interior",
+    "category": "Residential",
+    "image": "https://images.pexels.com/photos/19689228/pexels-photo-19689228.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    "image_alt": "Luxury living room with blue sofas",
+    "order": 1,
+    "published": true
+  },
+  {
+    "title": "Boutique Lounge",
+    "category": "Hospitality",
+    "image": "https://images.pexels.com/photos/19689227/pexels-photo-19689227.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    "image_alt": "Elegant hotel lounge with plush seating",
+    "order": 2,
+    "published": true
+  },
+  {
+    "title": "Retail Concept Store",
+    "category": "Commercial",
+    "image": "https://images.pexels.com/photos/15306470/pexels-photo-15306470.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    "image_alt": "Interior of a modern retail clothing store",
+    "order": 3,
+    "published": true
+  },
+  {
+    "title": "Penthouse Living Room",
+    "category": "Residential",
+    "image": "https://images.pexels.com/photos/12284842/pexels-photo-12284842.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    "image_alt": "Stylish contemporary living room",
+    "order": 4,
+    "published": true
+  },
+  {
+    "title": "Executive Office Suite",
+    "category": "Commercial",
+    "image": "https://images.pexels.com/photos/33342710/pexels-photo-33342710.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    "image_alt": "Modern luxury office interior",
+    "order": 5,
+    "published": true
+  },
+  {
+    "title": "Master Bedroom Suite",
+    "category": "Residential",
+    "image": "https://images.pexels.com/photos/8135502/pexels-photo-8135502.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    "image_alt": "Bright luxury bedroom with gold accents",
+    "order": 6,
+    "published": true
+  }
+]
