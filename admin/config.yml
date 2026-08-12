@@ -35,7 +35,7 @@ auth:
 
 
 # Add site links in Decap CMS (optional)
-site_url: "https://habbyinterior.netlify.app"
+
 
 # This controls where general uploads land if an editor drags an image
 # into a field that doesn't have its own folder set below.
