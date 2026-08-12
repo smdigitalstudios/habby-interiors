@@ -9,6 +9,17 @@ backend:
   auth_endpoint: "/sites/3fa3db82-cc2f-436c-89c4-8fdf537f44e8/pkce"
   auth_token_endpoint: "/sites/3fa3db82-cc2f-436c-89c4-8fdf537f44e8/token"
   gateway_url: "https://gateway.decapbridge.com"
+  # NOTE: DecapBridge's git-gateway is multi-tenant (it identifies your site
+  # from the authenticated session, not the URL), so gateway_url does NOT
+  # need a /github or /gitlab suffix the way a self-hosted git-gateway would.
+  # This differs from generic Decap CMS PKCE docs on purpose - leave as-is.
+  #
+  # VERIFY: the official Decap CMS PKCE spec also includes an `app_id`
+  # (OAuth client ID) field. Pull up the exact snippet from your DecapBridge
+  # dashboard (your site > config.yml) and confirm one wasn't dropped here
+  # when the file was reformatted. If DecapBridge's generated template
+  # doesn't include one, you're fine - their site-scoped auth_endpoint
+  # already identifies the site without it.
 
 # --------------------------------------------------
 # COMMIT MESSAGES
@@ -49,6 +60,11 @@ public_folder: "/images/uploads"
 publish_mode: simple
 
 # Habby Interiors logo
+# VERIFY: "/a.png" reads like a placeholder filename. Confirm this file
+# actually exists at your repo/site root and is the real Habby Interiors
+# logo, not a leftover test upload. If it 404s, the CMS silently falls
+# back to the generic default Decap CMS logo on the login screen, which
+# would look "unbranded" even though login/redirect worked correctly.
 logo_url: "/a.png"
 
 # --------------------------------------------------
@@ -92,7 +108,6 @@ collections:
             widget: "image"
             media_folder: "images/homepage"
             public_folder: "/images/homepage"
-            hint: "Large background image displayed in the hero section."
 
           - label: "Hero Image Description"
             name: "hero_image_alt"
