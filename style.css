@@ -408,4 +408,34 @@
     }
     body.nav-open nav{opacity:1;visibility:visible;}
     nav ul{flex-direction:column;gap:26px;text-align:center;}
-    nav a{font-size:17px;padding:6px 4px;-webkit-tap-highlight-color:transparent;touch-actio
+        nav a{font-size:17px;padding:6px 4px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+    .nav-cta{display:none;}
+    .nav-mobile-cta{display:inline-flex;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+    .nav-toggle{display:flex;}
+    :root{--header-h: var(--header-h-mobile);}
+  }
+
+  @media (max-width:720px){
+    .wrap{padding:0 22px;}
+    header{padding:18px 22px;}
+    .service-grid{grid-template-columns:1fr;}
+    .port-grid{grid-template-columns:1fr;}
+    .statement-foot{flex-direction:column;align-items:flex-start;}
+    .follow-box{flex-direction:column;align-items:flex-start;}
+    .marquee-track span{font-size:15px;padding:0 20px;}
+    .scroll-cue{display:none;}
+    :root{--header-h-mobile: 70px;}
+  }
+
+  /* keeps the logo's subtitle line from crowding the hamburger button on very small phones */
+  @media (max-width:380px){
+    .logo .word span{display:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .hero-bg{animation:none;}
+    .marquee-track{animation:none;}
+    .scroll-cue i{animation:none;}
+    .reveal{transition:none !important;opacity:1 !important;transform:none !important;}
+        }
