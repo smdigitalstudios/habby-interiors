@@ -363,7 +363,28 @@
     display:flex;align-items:center;justify-content:center;text-align:center;
     color:var(--stone);font-size:12px;padding:20px;line-height:1.6;
   }
+.map-ph{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 260px;
+  overflow: hidden;
+}
 
+.map-ph iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 640px){
+  .map-ph{
+    aspect-ratio: 4 / 3; /* a touch taller relative to width on phones */
+  }
+}
   /* ===== FOOTER ===== */
   footer{background:var(--ink);color:var(--paper);padding:70px 0 30px;}
   .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:50px;border-bottom:1px solid var(--line-dark);}
