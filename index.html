@@ -275,17 +275,7 @@
 </a>
           </div>
         </div>
-        <div class="map-ph"><iframe
-  src="https://www.google.com/maps?q=Agege,+69+Agege+Motor+Rd,+Idi+Oro,+Lagos+102215,+Lagos&output=embed">
-  
-
-
-                              
-                            
-        
-        
-    
-        </div>
+        <div class="map-ph">Studio location map — add embed once address is confirmed</div>
       </div>
     </div>
   </div>
@@ -351,5 +341,9 @@
         const heroBg = document.querySelector('.hero-bg');
         if (heroBg && home.hero_image) {
           heroBg.dataset.bg = home.hero_image;
-          if (home.hero_image_alt) heroBg.setAttribute('aria-label', home.hero_image_alt
-                                                       </script>             
+          if (home.hero_image_alt) heroBg.setAttribute('aria-label', home.hero_image_alt);
+        }
+
+        [
+          { cls: '.swatch.s1', img: home.service_1_image, alt: home.service_1_alt },
+          { cls: '.swatch.s2', img: home.serv
