@@ -1,3 +1,7 @@
+*{margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }   
 :root{
       --ink:#0f0d0b;
       --ink-2:#181410;
@@ -12,9 +16,13 @@
       --display:'Fraunces', serif;
       --body:'Inter', sans-serif;
       --ease:cubic-bezier(.22,.9,.24,1);
+      --header-h: 90px;
+      --header-h-mobile: 78px;
     }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth}
+  ::-webkit-scrollbar{
+    display: none;
+  }
   body{
     background:var(--paper);
     color:var(--ink);
@@ -22,8 +30,8 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  body.loading{overflow:hidden;height:100vh;}
-  body.nav-open{overflow:hidden;}
+  body.nav-open{overflow:hidden;height:100%;}
+  html:has(body.nav-open){overflow:hidden;height:100%;}
   img,svg{display:block;max-width:100%;}
   a{color:inherit;text-decoration:none;}
   ul{list-style:none;}
@@ -31,6 +39,15 @@
   a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
     outline:2px solid var(--brass); outline-offset:3px;
   }
+
+  /* Anchor-scroll offset: every section a nav link points to needs this,
+     otherwise the fixed header (both its desktop and scrolled heights)
+     covers the top of whatever you just navigated to. This is what makes
+     every single nav link land "behind" the header instead of just under it. */
+  #top, section[id]{
+    scroll-margin-top: var(--header-h);
+  }
+
   .eyebrow{
     font-family:var(--body);
     font-size:11px;
@@ -64,41 +81,39 @@
   /* ===== SCROLL PROGRESS ===== */
   .scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--brass);z-index:600;width:0%;}
 
-  /* ===== LOADER ===== */
-  .loader{
-    position:fixed;inset:0;z-index:2000;background:var(--ink);
-    display:flex;align-items:center;justify-content:center;
-    transition:opacity .8s var(--ease), visibility .8s var(--ease);
-  }
-  .loader.hide{opacity:0;visibility:hidden;pointer-events:none;}
-  .loader-inner{text-align:center;}
-  .loader-mark{
-    font-family:var(--display);font-style:italic;font-size:16px;
-    width:64px;height:64px;border:1px solid var(--brass);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
-    color:var(--brass-light);letter-spacing:.02em;
-    animation:pulseRing 2.4s ease-in-out infinite;
-  }
-  @keyframes pulseRing{0%,100%{box-shadow:0 0 0 0 rgba(180,137,79,.28);}50%{box-shadow:0 0 0 12px rgba(180,137,79,0);}}
-  .loader-word{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);opacity:.72;margin-bottom:28px;}
-  .loader-bar{width:180px;height:1px;background:var(--line-dark);margin:0 auto;position:relative;overflow:hidden;}
-  .loader-bar span{position:absolute;left:0;top:0;bottom:0;width:0%;background:var(--brass);transition:width .25s ease-out;}
-
   /* ===== NAV ===== */
   header{
     position:fixed;top:0;left:0;right:0;z-index:500;
     display:flex;align-items:center;justify-content:space-between;
     padding:22px 40px;
-    transition:background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+    transition:padding .4s var(--ease);
+  }
+  /* The blurred header backdrop lives on a pseudo-element, not on `header`
+     itself. A filter/backdrop-filter on `header` would make it the
+     containing block for its position:fixed children — and `nav` (the
+     mobile menu overlay) is one of those children. That silently shrinks
+     the "full-screen" nav down to just the header's own box the moment
+     .scrolled is applied, which is why the overlay only covered a sliver
+     near the top instead of the whole viewport. Keeping the filter on a
+     pseudo-element (a sibling in the render tree, not an ancestor of nav)
+     avoids that entirely. */
+  header::before{
+    content:'';
+    position:absolute;inset:0;z-index:-1;
+    background:rgba(15,13,11,0);
     border-bottom:1px solid transparent;
+    transition:background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s var(--ease);
+    pointer-events:none;
   }
   header.scrolled{
+    padding:14px 40px;
+  }
+  header.scrolled::before{
     background:rgba(15,13,11,0.88);
     backdrop-filter:blur(10px);
-    padding:14px 40px;
     border-bottom:1px solid var(--line-dark);
   }
-  .logo{display:flex;align-items:center;gap:12px;color:var(--paper);}
+  .logo{display:flex;align-items:center;gap:12px;color:var(--paper);min-width:0;}
 
   /* logo mark: real image with a graceful text fallback if the file isn't there yet.
      drop your logo file in as assets/logo.png (any square/round image works,
@@ -118,8 +133,9 @@
 
   .logo .word{
     font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;line-height:1.3;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
-  .logo .word span{display:block;color:var(--stone);font-size:10px;letter-spacing:.18em;}
+  .logo .word span{display:block;color:var(--stone);font-size:10px;letter-spacing:.18em;white-space:nowrap;}
   nav ul{display:flex;gap:34px;}
   nav a{
     font-size:12.5px;letter-spacing:.05em;color:var(--paper);opacity:.78;
@@ -146,8 +162,13 @@
     transition:background .3s, color .3s;
   }
   .nav-mobile-cta:hover{background:var(--brass);color:var(--ink);}
-  .nav-toggle{display:none;flex-direction:column;gap:5px;width:26px;z-index:600;position:relative;}
-  .nav-toggle span{height:1px;background:var(--paper);width:100%;transition:.35s var(--ease);display:block;}
+  .nav-toggle{
+    display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+    width:44px;height:44px;margin:-9px -9px -9px 0;padding:9px;
+    z-index:600;position:relative;flex-shrink:0;
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  }
+  .nav-toggle span{height:1px;background:var(--paper);width:26px;transition:.35s var(--ease);display:block;}
   body.nav-open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg);}
   body.nav-open .nav-toggle span:nth-child(2){opacity:0;}
   body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
@@ -263,36 +284,6 @@
   .process-item h3{font-family:var(--display);font-size:26px;font-weight:400;}
   .process-item p{font-size:14.5px;line-height:1.7;color:var(--stone);max-width:420px;}
 
-  /* ===== MATERIALS (signature) ===== */
-  .materials{padding:150px 0 130px;}
-  .materials .section-head{margin-bottom:20px;}
-  .rail-hint{font-size:12px;color:var(--stone);display:flex;align-items:center;gap:8px;margin:0 0 30px;letter-spacing:.03em;}
-  .rail-hint svg{width:16px;height:16px;}
-  .rail{
-    display:flex;gap:2px;overflow-x:auto;scroll-snap-type:x proximity;
-    cursor:grab;padding-bottom:20px;user-select:none;
-    -ms-overflow-style:none;scrollbar-width:none;
-  }
-  .rail::-webkit-scrollbar{display:none;}
-  .rail.dragging{cursor:grabbing;}
-  .swatch-card{
-    flex:0 0 240px;height:360px;position:relative;scroll-snap-align:start;
-    overflow:hidden;
-  }
-  .swatch-card .tex{position:absolute;inset:0;background-size:cover;background-position:center;}
-  .tex-marble{background-color:#cfc5ae;}
-  .tex-brass{background-color:#a9834c;}
-  .tex-walnut{background-color:#4a2e20;}
-  .tex-linen{background-color:#c9bfa8;}
-  .tex-velvet{background-color:#123d2d;}
-  .swatch-card .cap{
-    position:absolute;left:0;right:0;bottom:0;padding:20px;
-    background:linear-gradient(to top, rgba(15,13,11,.9), transparent);
-    color:#fff;transform:translateY(0);opacity:1;transition:transform .4s var(--ease);
-  }
-  .swatch-card .cap h4{font-family:var(--display);font-style:italic;font-size:19px;margin-bottom:6px;}
-  .swatch-card .cap p{font-size:12px;color:#d8cdbb;line-height:1.5;}
-
   /* ===== PORTFOLIO ===== */
   .portfolio{padding:150px 0;}
   .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line-dark);border:1px solid var(--line-dark);}
@@ -372,7 +363,28 @@
     display:flex;align-items:center;justify-content:center;text-align:center;
     color:var(--stone);font-size:12px;padding:20px;line-height:1.6;
   }
+.map-ph{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 260px;
+  overflow: hidden;
+}
 
+.map-ph iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 640px){
+  .map-ph{
+    aspect-ratio: 4 / 3; /* a touch taller relative to width on phones */
+  }
+}
   /* ===== FOOTER ===== */
   footer{background:var(--ink);color:var(--paper);padding:70px 0 30px;}
   .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:50px;border-bottom:1px solid var(--line-dark);}
@@ -386,8 +398,30 @@
 
   /* toast */
   .toast{
-    position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(140%);
+    position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(200%);
     background:var(--ink);color:var(--paper);border:1px solid var(--brass);
     padding:16px 26px;font-size:13px;letter-spacing:.03em;z-index:1000;
     transition:transform .5s var(--ease);
-  
+  }
+  .toast.show{transform:translateX(-50%) translateY(0);}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:repeat(2,1fr);gap:36px;}
+    .port-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-grid{grid-template-columns:1fr;gap:60px;}
+    .process-item{grid-template-columns:60px 1fr;}
+    .process-item p{grid-column:2/3;}
+  }
+
+  /* Nav collapses to the hamburger menu here — raised from the old 720px so it
+     kicks in before the full nav (logo + 6 
+links + CTA button) runs out of room
+     and wraps/overflows on tablets and small laptop windows. */
+  @media (max-width:1080px){
+    nav{
+      position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,13,11,0.98);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      overflow-y:auto;-webkit-overflow-scrolling:touch;
+      padding:90px 20px calc(40px + env(safe-area-inse
