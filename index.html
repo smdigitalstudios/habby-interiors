@@ -315,35 +315,4 @@
 
 <div class="toast" id="toast">Opening WhatsApp — hit send there to complete your enquiry.</div>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- CMS content hydration ----------
-     Pulls logo / hero / service images from content/homepage.json (edited via Decap CMS)
-     and the portfolio grid from data/projects.json (built from content/projects/*.json
-     by scripts/build-content.js at deploy time). If either fetch fails — e.g. before the
-     CMS has been used for the first time — the page silently keeps the hardcoded content
-     already in this HTML, so nothing ever breaks. */
-  async function hydrateFromCMS(){
-    try {
-      const [homeRes, projRes] = await Promise.allSettled([
-        fetch('/content/homepage.json', {cache:'no-store'}),
-        fetch('/data/projects.json', {cache:'no-store'})
-      ]);
-
-      if (homeRes.status === 'fulfilled' && homeRes.value.ok) {
-        const home = await homeRes.value.json();
-
-        const logoImg = document.querySelector('.mark-img');
-        if (logoImg && home.logo) logoImg.src = home.logo;
-
-        const heroBg = document.querySelector('.hero-bg');
-        if (heroBg && home.hero_image) {
-          heroBg.dataset.bg = home.hero_image;
-          if (home.hero_image_alt) heroBg.setAttribute('aria-label', home.hero_image_alt);
-        }
-
-        [
-          { cls: '.swatch.s1', img: home.service_1_image, alt: home.service_1_alt },
-          { cls: '.swatch.s2', img: home.serv
+</html>
