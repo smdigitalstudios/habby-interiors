@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://habbyinteriors.netlify.app/sitemap.xml
